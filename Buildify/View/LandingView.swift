@@ -14,7 +14,7 @@ struct LandingView: View {
         NavigationView {
             GeometryReader { proxy in
                 VStack {
-                    Spacer().frame(height: proxy.size.height * 0.18)
+                    Spacer().frame(height: proxy.size.height * 0.08)
                     Text("Health & Fitness")
                         .font(.system(size: 45, weight: .medium))
                         .foregroundColor(.white)
