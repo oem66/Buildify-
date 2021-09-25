@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,7 @@
 		1703346626D12D2B00D599B3 /* RemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703346526D12D2B00D599B3 /* RemindView.swift */; };
 		1703346926D12F5200D599B3 /* CreateChallengeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703346826D12F5200D599B3 /* CreateChallengeViewModel.swift */; };
 		1703346B26D1300500D599B3 /* DropdownItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703346A26D1300500D599B3 /* DropdownItemProtocol.swift */; };
+		17BACE6126FFAC5200E85DE0 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BACE6026FFAC5200E85DE0 /* UserService.swift */; };
 		17EDDF1426FD071100158ACF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17EDDF1326FD071100158ACF /* GoogleService-Info.plist */; };
 		650DC58F2FC5067A05165E53 /* Pods_Buildify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FF4873AACA73695A53A7EB /* Pods_Buildify.framework */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		1703346526D12D2B00D599B3 /* RemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindView.swift; sourceTree = "<group>"; };
 		1703346826D12F5200D599B3 /* CreateChallengeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeViewModel.swift; sourceTree = "<group>"; };
 		1703346A26D1300500D599B3 /* DropdownItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownItemProtocol.swift; sourceTree = "<group>"; };
+		17BACE6026FFAC5200E85DE0 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		17EDDF1326FD071100158ACF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4471235828AB7EDDEC8F237B /* Pods-Buildify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buildify.debug.xcconfig"; path = "Target Support Files/Pods-Buildify/Pods-Buildify.debug.xcconfig"; sourceTree = "<group>"; };
 		B2FF4873AACA73695A53A7EB /* Pods_Buildify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buildify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,7 @@
 		1700701A26D11BE90002F7F5 /* Buildify */ = {
 			isa = PBXGroup;
 			children = (
+				17BACE5F26FFAC3600E85DE0 /* Service */,
 				1703345D26D1210100D599B3 /* PrimaryButtonStyle.swift */,
 				1703345F26D1224900D599B3 /* Color+Extension.swift */,
 				1703346726D12F2800D599B3 /* View Model */,
@@ -116,13 +119,20 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		17BACE5F26FFAC3600E85DE0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				17BACE6026FFAC5200E85DE0 /* UserService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		1A2D030E4E499C08BA1898FD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				4471235828AB7EDDEC8F237B /* Pods-Buildify.debug.xcconfig */,
 				FD3F1AF7F469816A638FE00C /* Pods-Buildify.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -254,6 +264,7 @@
 				1703346B26D1300500D599B3 /* DropdownItemProtocol.swift in Sources */,
 				1703346026D1224900D599B3 /* Color+Extension.swift in Sources */,
 				1703346926D12F5200D599B3 /* CreateChallengeViewModel.swift in Sources */,
+				17BACE6126FFAC5200E85DE0 /* UserService.swift in Sources */,
 				1703346626D12D2B00D599B3 /* RemindView.swift in Sources */,
 				1703346226D127C000D599B3 /* CreateView.swift in Sources */,
 				1703346426D1281800D599B3 /* DropdownView.swift in Sources */,
@@ -385,9 +396,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Buildify/Preview Content\"";
 				DEVELOPMENT_TEAM = JB4H896VDB;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Buildify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -395,10 +409,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.omer.Buildify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -408,9 +423,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Buildify/Preview Content\"";
 				DEVELOPMENT_TEAM = JB4H896VDB;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Buildify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -418,10 +436,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.omer.Buildify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
