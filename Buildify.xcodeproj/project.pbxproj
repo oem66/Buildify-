@@ -18,6 +18,8 @@
 		1703346626D12D2B00D599B3 /* RemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703346526D12D2B00D599B3 /* RemindView.swift */; };
 		1703346926D12F5200D599B3 /* CreateChallengeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703346826D12F5200D599B3 /* CreateChallengeViewModel.swift */; };
 		1703346B26D1300500D599B3 /* DropdownItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703346A26D1300500D599B3 /* DropdownItemProtocol.swift */; };
+		17EDDF1426FD071100158ACF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17EDDF1326FD071100158ACF /* GoogleService-Info.plist */; };
+		650DC58F2FC5067A05165E53 /* Pods_Buildify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FF4873AACA73695A53A7EB /* Pods_Buildify.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,10 @@
 		1703346526D12D2B00D599B3 /* RemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindView.swift; sourceTree = "<group>"; };
 		1703346826D12F5200D599B3 /* CreateChallengeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeViewModel.swift; sourceTree = "<group>"; };
 		1703346A26D1300500D599B3 /* DropdownItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownItemProtocol.swift; sourceTree = "<group>"; };
+		17EDDF1326FD071100158ACF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4471235828AB7EDDEC8F237B /* Pods-Buildify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buildify.debug.xcconfig"; path = "Target Support Files/Pods-Buildify/Pods-Buildify.debug.xcconfig"; sourceTree = "<group>"; };
+		B2FF4873AACA73695A53A7EB /* Pods_Buildify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buildify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD3F1AF7F469816A638FE00C /* Pods-Buildify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buildify.release.xcconfig"; path = "Target Support Files/Pods-Buildify/Pods-Buildify.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				650DC58F2FC5067A05165E53 /* Pods_Buildify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +59,8 @@
 			children = (
 				1700701A26D11BE90002F7F5 /* Buildify */,
 				1700701926D11BE90002F7F5 /* Products */,
+				1A2D030E4E499C08BA1898FD /* Pods */,
+				FF32238532420DBC330C1BB6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +82,7 @@
 				1700701B26D11BE90002F7F5 /* BuildifyApp.swift */,
 				1700701F26D11BEB0002F7F5 /* Assets.xcassets */,
 				1700702426D11BEB0002F7F5 /* Info.plist */,
+				17EDDF1326FD071100158ACF /* GoogleService-Info.plist */,
 				1700702126D11BEB0002F7F5 /* Preview Content */,
 			);
 			path = Buildify;
@@ -106,6 +116,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		1A2D030E4E499C08BA1898FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4471235828AB7EDDEC8F237B /* Pods-Buildify.debug.xcconfig */,
+				FD3F1AF7F469816A638FE00C /* Pods-Buildify.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FF32238532420DBC330C1BB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2FF4873AACA73695A53A7EB /* Pods_Buildify.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,9 +141,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1700702726D11BEB0002F7F5 /* Build configuration list for PBXNativeTarget "Buildify" */;
 			buildPhases = (
+				6756DA81DA63C77FF0619AF6 /* [CP] Check Pods Manifest.lock */,
 				1700701426D11BE90002F7F5 /* Sources */,
 				1700701526D11BE90002F7F5 /* Frameworks */,
 				1700701626D11BE90002F7F5 /* Resources */,
+				8C307BABAF790EA222E219DE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,10 +195,53 @@
 			files = (
 				1700702326D11BEB0002F7F5 /* Preview Assets.xcassets in Resources */,
 				1700702026D11BEB0002F7F5 /* Assets.xcassets in Resources */,
+				17EDDF1426FD071100158ACF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6756DA81DA63C77FF0619AF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Buildify-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C307BABAF790EA222E219DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Buildify/Pods-Buildify-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Buildify/Pods-Buildify-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Buildify/Pods-Buildify-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1700701426D11BE90002F7F5 /* Sources */ = {
@@ -308,6 +381,7 @@
 		};
 		1700702826D11BEB0002F7F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4471235828AB7EDDEC8F237B /* Pods-Buildify.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -330,6 +404,7 @@
 		};
 		1700702926D11BEB0002F7F5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD3F1AF7F469816A638FE00C /* Pods-Buildify.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
