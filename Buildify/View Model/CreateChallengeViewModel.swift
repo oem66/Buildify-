@@ -22,21 +22,7 @@ final class CreateChallengeViewModel: ObservableObject {
     private var cancellables: [AnyCancellable] = []
     
     enum Action {
-        case selectedOption(index: Int)
         case createChallenge
-    }
-    
-    var hasSelectedDropdown: Bool {
-        selectedDropdownIndex != nil
-    }
-    
-    var selectedDropdownIndex: Int? {
-        dropdowns.enumerated().first(where: { $0.element.isSelected })?.offset
-    }
-    
-    var displayedOptions: [DropdownOption] {
-        guard let selectedDropwdownIndex = selectedDropdownIndex else { return [] }
-        return dropdowns[selectedDropwdownIndex].options
     }
     
     init(userService: UserServiceProtocol = UserService()) {
@@ -45,11 +31,6 @@ final class CreateChallengeViewModel: ObservableObject {
     
     func send(action: Action) {
         switch action {
-        case let .selectedOption(index):
-            guard let selectedDropdownIndex = selectedDropdownIndex else { return }
-            clearSelectedOption()
-            dropdowns[selectedDropdownIndex].options[index].isSelected = true
-            clearSelectedDropdown()
         case .createChallenge:
             currentUserId().sink { completion in
                 switch completion {
@@ -63,18 +44,6 @@ final class CreateChallengeViewModel: ObservableObject {
             }.store(in: &cancellables)
 
         }
-    }
-    
-    func clearSelectedOption() {
-        guard let selectedDropdownIndex = selectedDropdownIndex else { return }
-        dropdowns[selectedDropdownIndex].options.indices.forEach { index in
-            dropdowns[selectedDropdownIndex].options[index].isSelected = false
-        }
-    }
-    
-    func clearSelectedDropdown() {
-        guard let selectedDropdownIndex = selectedDropdownIndex else { return }
-        dropdowns[selectedDropdownIndex].isSelected = false
     }
     
     private func currentUserId() -> AnyPublisher<UserId, Error> {
@@ -97,12 +66,14 @@ final class CreateChallengeViewModel: ObservableObject {
 
 extension CreateChallengeViewModel {
     struct ChallengePartViewModel: DropdownItemProtocol {
+        var selectedOption: DropdownOption
+        
         var options: [DropdownOption]
         var headerTitle: String {
             type.rawValue
         }
         var dropdownTitle: String {
-            options.first(where: { $0.isSelected })?.formatted ?? ""
+            selectedOption.formatted
         }
         var isSelected: Bool = false
         private let type: ChallengePartType
@@ -120,6 +91,7 @@ extension CreateChallengeViewModel {
             }
             
             self.type = type
+            self.selectedOption = options.first!
         }
         
         enum ChallengePartType: String, CaseIterable {
@@ -135,7 +107,7 @@ extension CreateChallengeViewModel {
             case situps
             
             var toDropdownOption: DropdownOption {
-                .init(type: .text(rawValue), formatted: rawValue.capitalized, isSelected: self == .pullups)
+                .init(type: .text(rawValue), formatted: rawValue.capitalized)
             }
         }
         
@@ -143,7 +115,7 @@ extension CreateChallengeViewModel {
             case one = 1, two, three, four, five
             
             var toDropdownOption: DropdownOption {
-                .init(type: .number(rawValue), formatted: "\(rawValue)", isSelected: self == .one)
+                .init(type: .number(rawValue), formatted: "\(rawValue)")
             }
         }
         
@@ -151,7 +123,7 @@ extension CreateChallengeViewModel {
             case one = 1, two, three, four, five
             
             var toDropdownOption: DropdownOption {
-                .init(type: .number(rawValue), formatted: "+\(rawValue)", isSelected: self == .one)
+                .init(type: .number(rawValue), formatted: "+\(rawValue)")
             }
         }
         
@@ -159,7 +131,7 @@ extension CreateChallengeViewModel {
             case seven = 7, fourteen = 14, twentyOne = 21, twentyEight = 28
             
             var toDropdownOption: DropdownOption {
-                .init(type: .number(rawValue), formatted: "\(rawValue) days", isSelected: self == .seven)
+                .init(type: .number(rawValue), formatted: "\(rawValue) days")
             }
         }
     }
