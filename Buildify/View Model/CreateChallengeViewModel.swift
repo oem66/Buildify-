@@ -11,12 +11,10 @@ import Combine
 typealias UserId = String
 
 final class CreateChallengeViewModel: ObservableObject {
-    @Published var dropdowns: [ChallengePartViewModel] = [
-        .init(type: .exercise),
-        .init(type: .startAmount),
-        .init(type: .increase),
-        .init(type: .lenght)
-    ]
+    @Published var exerciseDropdown = ChallengePartViewModel(type: .exercise)
+    @Published var increaseDropdown = ChallengePartViewModel(type: .increase)
+    @Published var startAmountDropdown = ChallengePartViewModel(type: .startAmount)
+    @Published var lenghtDropdown = ChallengePartViewModel(type: .lenght)
     
     private let userService: UserServiceProtocol
     private var cancellables: [AnyCancellable] = []
