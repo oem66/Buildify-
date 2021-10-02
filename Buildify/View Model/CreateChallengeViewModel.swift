@@ -16,6 +16,9 @@ final class CreateChallengeViewModel: ObservableObject {
     @Published var startAmountDropdown = ChallengePartViewModel(type: .startAmount)
     @Published var lenghtDropdown = ChallengePartViewModel(type: .lenght)
     
+    @Published var error: IncrementError?
+    @Published var isLoading = false
+    
     private let userService: UserServiceProtocol
     private let challengeService: ChallengeServiceProtocol
     private var cancellables: [AnyCancellable] = []
@@ -32,13 +35,15 @@ final class CreateChallengeViewModel: ObservableObject {
     func send(action: Action) {
         switch action {
         case .createChallenge:
-            currentUserId().flatMap { userId -> AnyPublisher<Void, Error> in
+            isLoading = true
+            currentUserId().flatMap { userId -> AnyPublisher<Void, IncrementError> in
                 return self.createChallenge(userId: userId)
             }
             .sink { completion in
+                self.isLoading = false
                 switch completion {
                 case let .failure(error):
-                    debugPrint(error.localizedDescription)
+                    self.error = error
                 case .finished:
                     debugPrint("Finished")
                 }
@@ -49,32 +54,33 @@ final class CreateChallengeViewModel: ObservableObject {
         }
     }
     
-    private func createChallenge(userId: UserId) -> AnyPublisher<Void, Error> {
+    private func createChallenge(userId: UserId) -> AnyPublisher<Void, IncrementError> {
         guard let exercise = exerciseDropdown.text,
               let startAmount = startAmountDropdown.number,
               let increase = increaseDropdown.number,
               let lenght = lenghtDropdown.number else {
-                  return Fail(error: NSError()).eraseToAnyPublisher()
+                  return Fail(error: .default(description: "Parsing error")).eraseToAnyPublisher()
               }
         
         let challenge = Challenge(exercise: exercise, startAmount: startAmount, increase: increase, lenght: lenght, userId: userId, startDate: Date())
         return challengeService.create(challenge).eraseToAnyPublisher()
     }
     
-    private func currentUserId() -> AnyPublisher<UserId, Error> {
+    private func currentUserId() -> AnyPublisher<UserId, IncrementError> {
         debugPrint("Getting UserId")
-        return userService.currentUser().flatMap { user -> AnyPublisher<UserId, Error> in
-            if let userId = user?.uid {
-                debugPrint("User is logged in...")
-                return Just(userId)
-                    .setFailureType(to: Error.self)
-                    .eraseToAnyPublisher()
-            } else {
-                debugPrint("User is being logged in annonymously...")
-                return self.userService.signInAnnonymously()
-                    .map { $0.uid }
-                    .eraseToAnyPublisher()
-            }
+        return userService.currentUser().flatMap { user -> AnyPublisher<UserId, IncrementError> in
+            return Fail(error: .auth(description: "some firebase auth error")).eraseToAnyPublisher()
+//            if let userId = user?.uid {
+//                debugPrint("User is logged in...")
+//                return Just(userId)
+//                    .setFailureType(to: IncrementError.self)
+//                    .eraseToAnyPublisher()
+//            } else {
+//                debugPrint("User is being logged in annonymously...")
+//                return self.userService.signInAnnonymously()
+//                    .map { $0.uid }
+//                    .eraseToAnyPublisher()
+//            }
         }.eraseToAnyPublisher()
     }
 }
