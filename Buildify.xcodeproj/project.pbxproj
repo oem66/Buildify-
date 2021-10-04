@@ -21,6 +21,7 @@
 		178B474727078F960062CDBF /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178B474627078F960062CDBF /* Challenge.swift */; };
 		178B4749270790940062CDBF /* ChallengeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178B4748270790940062CDBF /* ChallengeService.swift */; };
 		178B474B2708F4A40062CDBF /* IncrementError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178B474A2708F4A40062CDBF /* IncrementError.swift */; };
+		17A9544B270B7E3F00E875D7 /* AuthPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A9544A270B7E3F00E875D7 /* AuthPublisher.swift */; };
 		17BACE6126FFAC5200E85DE0 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BACE6026FFAC5200E85DE0 /* UserService.swift */; };
 		17EDDF1426FD071100158ACF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17EDDF1326FD071100158ACF /* GoogleService-Info.plist */; };
 		650DC58F2FC5067A05165E53 /* Pods_Buildify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FF4873AACA73695A53A7EB /* Pods_Buildify.framework */; };
@@ -43,6 +44,7 @@
 		178B474627078F960062CDBF /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		178B4748270790940062CDBF /* ChallengeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeService.swift; sourceTree = "<group>"; };
 		178B474A2708F4A40062CDBF /* IncrementError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncrementError.swift; sourceTree = "<group>"; };
+		17A9544A270B7E3F00E875D7 /* AuthPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPublisher.swift; sourceTree = "<group>"; };
 		17BACE6026FFAC5200E85DE0 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		17EDDF1326FD071100158ACF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4471235828AB7EDDEC8F237B /* Pods-Buildify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buildify.debug.xcconfig"; path = "Target Support Files/Pods-Buildify/Pods-Buildify.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		1700701A26D11BE90002F7F5 /* Buildify */ = {
 			isa = PBXGroup;
 			children = (
+				17A95448270B7E1500E875D7 /* Publishers */,
 				178B474527078F7C0062CDBF /* Model */,
 				17BACE5F26FFAC3600E85DE0 /* Service */,
 				1703345D26D1210100D599B3 /* PrimaryButtonStyle.swift */,
@@ -133,6 +136,14 @@
 				178B474627078F960062CDBF /* Challenge.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		17A95448270B7E1500E875D7 /* Publishers */ = {
+			isa = PBXGroup;
+			children = (
+				17A9544A270B7E3F00E875D7 /* AuthPublisher.swift */,
+			);
+			path = Publishers;
 			sourceTree = "<group>";
 		};
 		17BACE5F26FFAC3600E85DE0 /* Service */ = {
@@ -275,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17A9544B270B7E3F00E875D7 /* AuthPublisher.swift in Sources */,
 				1703345E26D1210100D599B3 /* PrimaryButtonStyle.swift in Sources */,
 				1700701E26D11BE90002F7F5 /* LandingView.swift in Sources */,
 				1700701C26D11BE90002F7F5 /* BuildifyApp.swift in Sources */,
