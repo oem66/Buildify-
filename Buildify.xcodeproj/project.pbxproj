@@ -18,6 +18,7 @@
 		1703346626D12D2B00D599B3 /* RemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703346526D12D2B00D599B3 /* RemindView.swift */; };
 		1703346926D12F5200D599B3 /* CreateChallengeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703346826D12F5200D599B3 /* CreateChallengeViewModel.swift */; };
 		1703346B26D1300500D599B3 /* DropdownItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703346A26D1300500D599B3 /* DropdownItemProtocol.swift */; };
+		17037582270CDE0900F44A9E /* TabContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17037581270CDE0900F44A9E /* TabContainerView.swift */; };
 		178B474727078F960062CDBF /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178B474627078F960062CDBF /* Challenge.swift */; };
 		178B4749270790940062CDBF /* ChallengeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178B4748270790940062CDBF /* ChallengeService.swift */; };
 		178B474B2708F4A40062CDBF /* IncrementError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178B474A2708F4A40062CDBF /* IncrementError.swift */; };
@@ -41,6 +42,7 @@
 		1703346526D12D2B00D599B3 /* RemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindView.swift; sourceTree = "<group>"; };
 		1703346826D12F5200D599B3 /* CreateChallengeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeViewModel.swift; sourceTree = "<group>"; };
 		1703346A26D1300500D599B3 /* DropdownItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownItemProtocol.swift; sourceTree = "<group>"; };
+		17037581270CDE0900F44A9E /* TabContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContainerView.swift; sourceTree = "<group>"; };
 		178B474627078F960062CDBF /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		178B4748270790940062CDBF /* ChallengeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeService.swift; sourceTree = "<group>"; };
 		178B474A2708F4A40062CDBF /* IncrementError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncrementError.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				17EDDF1326FD071100158ACF /* GoogleService-Info.plist */,
 				1700702126D11BEB0002F7F5 /* Preview Content */,
 				178B474A2708F4A40062CDBF /* IncrementError.swift */,
+				17037581270CDE0900F44A9E /* TabContainerView.swift */,
 			);
 			path = Buildify;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				1703346026D1224900D599B3 /* Color+Extension.swift in Sources */,
 				1703346926D12F5200D599B3 /* CreateChallengeViewModel.swift in Sources */,
 				17BACE6126FFAC5200E85DE0 /* UserService.swift in Sources */,
+				17037582270CDE0900F44A9E /* TabContainerView.swift in Sources */,
 				1703346626D12D2B00D599B3 /* RemindView.swift in Sources */,
 				178B4749270790940062CDBF /* ChallengeService.swift in Sources */,
 				1703346226D127C000D599B3 /* CreateView.swift in Sources */,

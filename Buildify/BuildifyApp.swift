@@ -16,12 +16,7 @@ struct BuildifyApp: App {
     var body: some Scene {
         WindowGroup {
             if appState.isLoggedIn {
-                TabView {
-                    Text("Log")
-                        .tabItem {
-                            Image(systemName: "book")
-                        }
-                }.accentColor(.primary)
+                TabContainerView()
             } else {
                 LandingView()
             }

@@ -69,18 +69,18 @@ final class CreateChallengeViewModel: ObservableObject {
     private func currentUserId() -> AnyPublisher<UserId, IncrementError> {
         debugPrint("Getting UserId")
         return userService.currentUser().flatMap { user -> AnyPublisher<UserId, IncrementError> in
-            return Fail(error: .auth(description: "some firebase auth error")).eraseToAnyPublisher()
-//            if let userId = user?.uid {
-//                debugPrint("User is logged in...")
-//                return Just(userId)
-//                    .setFailureType(to: IncrementError.self)
-//                    .eraseToAnyPublisher()
-//            } else {
-//                debugPrint("User is being logged in annonymously...")
-//                return self.userService.signInAnnonymously()
-//                    .map { $0.uid }
-//                    .eraseToAnyPublisher()
-//            }
+//            return Fail(error: .auth(description: "some firebase auth error")).eraseToAnyPublisher()
+            if let userId = user?.uid {
+                debugPrint("User is logged in...")
+                return Just(userId)
+                    .setFailureType(to: IncrementError.self)
+                    .eraseToAnyPublisher()
+            } else {
+                debugPrint("User is being logged in annonymously...")
+                return self.userService.signInAnnonymously()
+                    .map { $0.uid }
+                    .eraseToAnyPublisher()
+            }
         }.eraseToAnyPublisher()
     }
 }
